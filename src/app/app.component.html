@@ -1,8 +1,8 @@
-<div class="card">
+<div class="card margin-bottom">
   <p-menubar [model]="items" />
 </div>
 
-<div class="card flex flex-wrap gap-3 justify-content-center">
+<div class="card mt-5 mb-4 flex flex-wrap gap-3 justify-content-center">
   <p-button label="Primary" />
   <p-button label="Secondary" severity="secondary" />
   <p-button label="Success" severity="success" />
@@ -13,8 +13,137 @@
   <p-button label="Contrast" severity="contrast" />
 </div>
 
+
+
+<div class="card mb-5 flex justify-content-center">
+  <div>
+    <div class="card mb-5 mt-3 flex justify-content-center gap-3">
+      <div class="card flex justify-content-center">
+        <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [filter]="true" filterBy="name"
+          placeholder="Select a City" />
+      </div>
+
+      <div class="card flex justify-content-center">
+        <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true"
+          filterBy="name" [showClear]="true" placeholder="Select a Country">
+          <ng-template pTemplate="selectedItem">
+            <div class="flex align-items-center gap-2" *ngIf="selectedCountry">
+              <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+                [class]="'flag flag-' + selectedCountry.code.toLowerCase()" style="width: 18px" />
+              <div>{{ selectedCountry.name }}</div>
+            </div>
+          </ng-template>
+          <ng-template let-country pTemplate="item">
+            <div class="flex align-items-center gap-2">
+              <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+                [class]="'flag flag-' + country.code.toLowerCase()" style="width: 18px" />
+              <div>{{ country.name }}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+    </div>
+
+
+    <div class="card margin-bottom flex justify-content-center gap-3">
+      <div class="flex align-items-center">
+        <p-checkbox [(ngModel)]="pizza" label="Cheese" name="pizza" value="Cheese" />
+      </div>
+      <div class="flex align-items-center">
+        <p-checkbox [(ngModel)]="pizza" label="Mushroom" name="pizza" value="Mushroom" />
+      </div>
+      <div class="flex align-items-center">
+        <p-checkbox [(ngModel)]="pizza" label="Pepper" name="pizza" value="Pepper" />
+      </div>
+      <div class="flex align-items-center">
+        <p-checkbox [(ngModel)]="pizza" label="Onion" name="pizza" value="Onion" />
+      </div>
+    </div>
+
+    <div class="card mb-4 flex justify-content-center">
+      <div>
+        <input type="text" pInputText [(ngModel)]="sliderValue" class="w-full mb-3" />
+        <p-slider [(ngModel)]="sliderValue" class="w-full" />
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div style="height: 16vw" class="flex margin-left pb-7 align-items-center justify-content-center">
+      <p-toast />
+      <p-speedDial [model]="circleDial" type="circle" [radius]="80" buttonClassName="p-button-warning" />
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+<div class="card margin-bottom flex flex-wrap gap-3 p-fluid">
+  <div class="flex-auto">
+    <label for="integeronly">Integer Only</label>
+    <p-inputNumber inputId="integeronly" [(ngModel)]="value1" />
+  </div>
+  <div class="flex-auto">
+    <label for="withoutgrouping">Without Grouping</label>
+    <p-inputNumber [(ngModel)]="value2" mode="decimal" inputId="withoutgrouping" [useGrouping]="false" />
+  </div>
+  <div class="flex-auto">
+    <label for="minmaxfraction">Min-Max Fraction Digits</label>
+    <p-inputNumber [(ngModel)]="value3" inputId="minmaxfraction" mode="decimal" [minFractionDigits]="2"
+      [maxFractionDigits]="5" />
+  </div>
+  <div class="flex-auto">
+    <label for="minmax">Min-Max Boundaries</label>
+    <p-inputNumber [(ngModel)]="value4" inputId="minmax" mode="decimal" [min]="0" [max]="100" />
+  </div>
+</div>
+
+<div class="card margin-bottom flex flex-wrap gap-3 p-fluid">
+  <div class="flex-auto">
+    <label class="font-bold block mb-2" for="mile">
+      Mile
+    </label>
+    <p-inputNumber [(ngModel)]="value5" inputId="mile" suffix=" mi" />
+  </div>
+  <div class="flex-auto">
+    <label class="font-bold block mb-2" for="percent">
+      Percent
+    </label>
+    <p-inputNumber [(ngModel)]="value6" inputId="percent" prefix="%" />
+  </div>
+  <div class="flex-auto">
+    <label class="font-bold block mb-2" for="expiry">
+      Expiry
+    </label>
+    <p-inputNumber [(ngModel)]="value7" inputId="expiry" prefix="Expires in " suffix=" days" />
+  </div>
+  <div class="flex-auto">
+    <label class="font-bold block mb-2" for="temperature">
+      Temperature
+    </label>
+    <p-inputNumber [(ngModel)]="value8" prefix="↑ " inputId="temperature" suffix="℃" [min]="0" [max]="40" />
+  </div>
+</div>
+
+<div class="card mb-2 flex margin-bottom justify-content-center">
+  <p-knob [(ngModel)]="percentValue" valueTemplate="{value}%" />
+</div>
+
+<div class="card mb-4 flex justify-content-center">
+  <p-rating [(ngModel)]="ratingValue" [cancel]="false" />
+</div>
+
 <div class="card flex justify-content-center">
   <form [formGroup]="formGroup">
-    <p-dropdown formControlName="selectedCity" [options]="cities" optionLabel="name" placeholder="Select a City" />
+    <p-toggleButton formControlName="checked" onLabel="On" offLabel="Off" />
   </form>
 </div>
+
+
+<router-outlet></router-outlet>
