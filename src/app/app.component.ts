@@ -17,6 +17,8 @@ import { CommonModule } from '@angular/common';
 import { MessageService } from 'primeng/api';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { ToastModule } from 'primeng/toast';
+import { TreeNode } from 'primeng/api';
+import { OrganizationChartModule } from 'primeng/organizationchart';
 
 interface City {
   name: string;
@@ -26,7 +28,7 @@ interface City {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ButtonModule, MenubarModule, ReactiveFormsModule, DropdownModule, FormsModule, CheckboxModule, InputNumberModule, KnobModule, RatingModule, SliderModule, InputTextModule, ToggleButtonModule, CommonModule, ToastModule, SpeedDialModule],
+  imports: [RouterOutlet, ButtonModule, MenubarModule, ReactiveFormsModule, DropdownModule, FormsModule, CheckboxModule, InputNumberModule, KnobModule, RatingModule, SliderModule, InputTextModule, ToggleButtonModule, CommonModule, ToastModule, SpeedDialModule, OrganizationChartModule],
   providers: [MessageService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
@@ -56,6 +58,39 @@ export class AppComponent implements OnInit {
   ];
 
   selectedCountry: { name: string, code: string } | undefined;
+
+  data: TreeNode[] = [
+    {
+      label: 'Spain',
+      expanded: true,
+      children: [
+        {
+          label: 'Spain',
+          expanded: true,
+          children: [
+            {
+              label: 'Spain'
+            },
+            {
+              label: 'Switzerland'
+            }
+          ]
+        },
+        {
+          label: 'England',
+          expanded: true,
+          children: [
+            {
+              label: 'Ukraine'
+            },
+            {
+              label: 'England'
+            }
+          ]
+        }
+      ]
+    }
+  ];
 
   circleDial: MenuItem[] = [
     {

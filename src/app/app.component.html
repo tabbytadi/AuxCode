@@ -140,11 +140,17 @@
   <p-rating [(ngModel)]="ratingValue" [cancel]="false" />
 </div>
 
-<div class="card flex justify-content-center">
+<div class="card mb-4 flex justify-content-center">
   <form [formGroup]="formGroup">
     <p-toggleButton formControlName="checked" onLabel="On" offLabel="Off" />
   </form>
 </div>
+
+<div class="card mb-4 flex justify-content-center">
+  <p-organizationChart [value]="data" />
+</div>
+
+
 
 
 <router-outlet></router-outlet>
