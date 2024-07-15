@@ -28,20 +28,21 @@
           filterBy="name" [showClear]="true" placeholder="Select a Country">
           <ng-template pTemplate="selectedItem">
             <div class="flex align-items-center gap-2" *ngIf="selectedCountry">
-              <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
-                [class]="'flag flag-' + selectedCountry.code.toLowerCase()" style="width: 18px" />
+              <img src="https://flagcdn.com/16x12/{{selectedCountry.code.toLowerCase()}}.png"
+                alt="{{selectedCountry.name}} flag" style="width: 18px; height: 12px;" />
               <div>{{ selectedCountry.name }}</div>
             </div>
           </ng-template>
           <ng-template let-country pTemplate="item">
             <div class="flex align-items-center gap-2">
-              <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
-                [class]="'flag flag-' + country.code.toLowerCase()" style="width: 18px" />
+              <img src="https://flagcdn.com/16x12/{{country.code.toLowerCase()}}.png" alt="{{country.name}} flag"
+                style="width: 18px; height: 12px;" />
               <div>{{ country.name }}</div>
             </div>
           </ng-template>
         </p-dropdown>
       </div>
+
     </div>
 
 

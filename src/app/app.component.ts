@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
 
   selectedCity: City | undefined;
 
-  countries: any[] = [
+  countries: { name: string, code: string }[] = [
     { name: 'Australia', code: 'AU' },
     { name: 'Brazil', code: 'BR' },
     { name: 'China', code: 'CN' },
