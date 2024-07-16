@@ -6,6 +6,13 @@
   margin-left: 10rem;
 }
 
+.borderStyle {
+  border: 1px solid #e3e1e1;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.201);
+}
+
 p-scrollPanel::ng-deep .p-scrollpanel-bar {
   background-color: #60606092;
   border-radius: 10px;

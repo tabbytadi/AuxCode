@@ -27,6 +27,7 @@ import { DividerModule } from 'primeng/divider';
 import { FieldsetModule } from 'primeng/fieldset';
 import { AvatarModule } from 'primeng/avatar';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { TabViewModule } from 'primeng/tabview';
 
 interface City {
   name: string;
@@ -41,7 +42,7 @@ interface Column {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ButtonModule, MenubarModule, ReactiveFormsModule, DropdownModule, FormsModule, CheckboxModule, InputNumberModule, KnobModule, RatingModule, SliderModule, InputTextModule, ToggleButtonModule, CommonModule, ToastModule, SpeedDialModule, OrganizationChartModule, TreeTableModule, AccordionModule, CardModule, DividerModule, AvatarModule, FieldsetModule, ScrollPanelModule],
+  imports: [RouterOutlet, ButtonModule, MenubarModule, ReactiveFormsModule, DropdownModule, FormsModule, CheckboxModule, InputNumberModule, KnobModule, RatingModule, SliderModule, InputTextModule, ToggleButtonModule, CommonModule, ToastModule, SpeedDialModule, OrganizationChartModule, TreeTableModule, AccordionModule, CardModule, DividerModule, AvatarModule, FieldsetModule, ScrollPanelModule, TabViewModule],
   providers: [MessageService, NodeService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
@@ -164,6 +165,8 @@ export class AppComponent implements OnInit {
   sliderValue: number = 50;
 
   items: MenuItem[] | undefined;
+
+  activeIndex: number = 0;
 
   formGroup = new FormGroup({
     checked: new FormControl<boolean>(false)
