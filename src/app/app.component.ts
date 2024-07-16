@@ -24,6 +24,8 @@ import { TreeTableModule } from 'primeng/treetable';
 import { AccordionModule } from 'primeng/accordion';
 import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
+import { FieldsetModule } from 'primeng/fieldset';
+import { AvatarModule } from 'primeng/avatar';
 
 interface City {
   name: string;
@@ -38,7 +40,7 @@ interface Column {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ButtonModule, MenubarModule, ReactiveFormsModule, DropdownModule, FormsModule, CheckboxModule, InputNumberModule, KnobModule, RatingModule, SliderModule, InputTextModule, ToggleButtonModule, CommonModule, ToastModule, SpeedDialModule, OrganizationChartModule, TreeTableModule, AccordionModule, CardModule, DividerModule],
+  imports: [RouterOutlet, ButtonModule, MenubarModule, ReactiveFormsModule, DropdownModule, FormsModule, CheckboxModule, InputNumberModule, KnobModule, RatingModule, SliderModule, InputTextModule, ToggleButtonModule, CommonModule, ToastModule, SpeedDialModule, OrganizationChartModule, TreeTableModule, AccordionModule, CardModule, DividerModule, AvatarModule, FieldsetModule],
   providers: [MessageService, NodeService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
