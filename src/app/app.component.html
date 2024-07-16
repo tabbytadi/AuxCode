@@ -134,59 +134,54 @@
 
 
 
-<div class="card my-7 flex justify-content-center">
+<div class="card mt-7 flex justify-content-center">
   <div class="mr-7 mt-4">
     <div class="card mb-2 flex margin-bottom justify-content-center">
       <p-knob [(ngModel)]="percentValue" valueTemplate="{value}%" />
     </div>
 
-    <div class="card mb-4 flex justify-content-center">
+    <div class="card flex justify-content-center">
       <p-rating [(ngModel)]="ratingValue" [cancel]="false" />
     </div>
 
-    <div class="card mb-4 flex justify-content-center">
+    <div class="card flex justify-content-center">
       <form [formGroup]="formGroup">
         <p-toggleButton formControlName="checked" onLabel="On" offLabel="Off" />
       </form>
     </div>
   </div>
 
-  <div class="card mb-4 flex justify-content-center">
+  <div class="card flex justify-content-center">
     <p-organizationChart [value]="data" />
   </div>
 </div>
 
 
-<div class="card mb-4">
-  <p-treeTable [value]="files" [columns]="cols" [scrollable]="true" [tableStyle]="{ 'min-width': '50rem' }">
-    <ng-template pTemplate="caption">
-      <div class="text-xl font-bold">File Viewer</div>
-    </ng-template>
-    <ng-template pTemplate="header" let-columns>
-      <tr>
-        <th *ngFor="let col of columns">
-          {{ col.header }}
-        </th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
-      <tr [ttRow]="rowNode">
-        <td *ngFor="let col of columns; let i = index; let last = last">
-          <p-treeTableToggler [rowNode]="rowNode" *ngIf="i === 0" />
-          {{ rowData[col.field] }}
-          <ng-container *ngIf="last">
-            <p-button icon="pi pi-search" rounded="true" [style]="{ 'margin-right': '.5em' }" />
-            <p-button icon="pi pi-pencil" rounded="true" severity="success" />
-          </ng-container>
-        </td>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="summary">
-      <div style="text-align:left">
-        <p-button icon="pi pi-refresh" label="Reload" severity="warning" />
+<div class="card my-6">
+  <div class="flex flex-column md:flex-row">
+    <div class="w-full md:w-5 flex flex-column align-items-center justify-content-center gap-3 py-5">
+      <div class="flex flex-wrap justify-content-center align-items-center gap-2">
+        <label class="w-6rem">Username</label>
+        <input pInputText id="username" type="text" class="w-12rem" />
       </div>
-    </ng-template>
-  </p-treeTable>
+      <div class="flex flex-wrap justify-content-center align-items-center gap-2">
+        <label class="w-6rem">Password</label>
+        <input pInputText id="password" type="password" class="w-12rem" />
+      </div>
+      <p-button label="Login" icon="pi pi-user" styleClass="w-10rem mx-auto" />
+    </div>
+    <div class="w-full md:w-2">
+      <p-divider layout="vertical" styleClass="hidden md:flex">
+        <b>OR</b>
+      </p-divider>
+      <p-divider layout="horizontal" styleClass="flex md:hidden" [align]="'center'">
+        <b>OR</b>
+      </p-divider>
+    </div>
+    <div class="w-full md:w-5 flex align-items-center justify-content-center py-5">
+      <p-button label="Sign Up" icon="pi pi-user-plus" styleClass="p-button-success w-10rem" />
+    </div>
+  </div>
 </div>
 
 <div class="card">
@@ -271,4 +266,8 @@
     </p>
   </p-accordionTab>
 </p-accordion>
+
+
+
+
 <router-outlet></router-outlet>

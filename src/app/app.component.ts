@@ -23,6 +23,7 @@ import { NodeService } from '../service/nodeservice';
 import { TreeTableModule } from 'primeng/treetable';
 import { AccordionModule } from 'primeng/accordion';
 import { CardModule } from 'primeng/card';
+import { DividerModule } from 'primeng/divider';
 
 interface City {
   name: string;
@@ -37,7 +38,7 @@ interface Column {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ButtonModule, MenubarModule, ReactiveFormsModule, DropdownModule, FormsModule, CheckboxModule, InputNumberModule, KnobModule, RatingModule, SliderModule, InputTextModule, ToggleButtonModule, CommonModule, ToastModule, SpeedDialModule, OrganizationChartModule, TreeTableModule, AccordionModule, CardModule],
+  imports: [RouterOutlet, ButtonModule, MenubarModule, ReactiveFormsModule, DropdownModule, FormsModule, CheckboxModule, InputNumberModule, KnobModule, RatingModule, SliderModule, InputTextModule, ToggleButtonModule, CommonModule, ToastModule, SpeedDialModule, OrganizationChartModule, TreeTableModule, AccordionModule, CardModule, DividerModule],
   providers: [MessageService, NodeService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
