@@ -19,17 +19,24 @@ import { SpeedDialModule } from 'primeng/speeddial';
 import { ToastModule } from 'primeng/toast';
 import { TreeNode } from 'primeng/api';
 import { OrganizationChartModule } from 'primeng/organizationchart';
+import { NodeService } from '../service/nodeservice';
+import { TreeTableModule } from 'primeng/treetable';
 
 interface City {
   name: string;
   code: string;
 }
 
+interface Column {
+  field: string;
+  header: string;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ButtonModule, MenubarModule, ReactiveFormsModule, DropdownModule, FormsModule, CheckboxModule, InputNumberModule, KnobModule, RatingModule, SliderModule, InputTextModule, ToggleButtonModule, CommonModule, ToastModule, SpeedDialModule, OrganizationChartModule],
-  providers: [MessageService],
+  imports: [RouterOutlet, ButtonModule, MenubarModule, ReactiveFormsModule, DropdownModule, FormsModule, CheckboxModule, InputNumberModule, KnobModule, RatingModule, SliderModule, InputTextModule, ToggleButtonModule, CommonModule, ToastModule, SpeedDialModule, OrganizationChartModule, TreeTableModule],
+  providers: [MessageService, NodeService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -121,8 +128,10 @@ export class AppComponent implements OnInit {
       url: 'http://angular.io'
     }
   ];
+  files: any;
+  cols: { field: string; header: string; }[] | undefined;
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private nodeService: NodeService) { }
 
   pizza: string[] = [];
 
@@ -155,6 +164,14 @@ export class AppComponent implements OnInit {
   });
 
   ngOnInit() {
+    this.nodeService.getFilesystem().then((files: any) => (this.files = files));
+    this.cols = [
+      { field: 'name', header: 'Name' },
+      { field: 'size', header: 'Size' },
+      { field: 'type', header: 'Type' },
+      { field: '', header: '' }
+    ];
+
     this.items = [
       {
         label: 'Home',
