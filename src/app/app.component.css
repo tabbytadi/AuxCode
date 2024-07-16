@@ -5,3 +5,20 @@
 .margin-left {
   margin-left: 10rem;
 }
+
+p-scrollPanel::ng-deep .p-scrollpanel-bar {
+  background-color: #60606092;
+  border-radius: 10px;
+}
+
+p-scrollPanel::ng-deep .p-scrollpanel-bar:hover {
+  background-color: #515151bd;
+}
+
+p-scrollPanel::ng-deep .p-scrollpanel-wrapper {
+  overflow: hidden !important;
+}
+
+p-scrollPanel::ng-deep .p-scrollpanel-content {
+  margin-right: -10px;
+}
