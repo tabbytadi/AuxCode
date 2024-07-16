@@ -1,74 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem, MessageService } from 'primeng/api';
-import { SpeedDialModule } from 'primeng/speeddial';
-import { ToastModule } from 'primeng/toast';
+import { TimelineModule } from 'primeng/timeline';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import { CommonModule } from '@angular/common';
+
+interface EventItem {
+  status?: string;
+  date?: string;
+  icon?: string;
+  color?: string;
+  image?: string;
+}
 
 @Component({
   selector: 'app-hello',
   standalone: true,
-  imports: [SpeedDialModule, ToastModule],
-  providers: [MessageService],
-  styles: [
-    `:host ::ng-deep {
-        .speeddial-circle-demo {
-            .p-speeddial-quarter-circle {
-                &.p-speeddial-direction-up-left {
-                    right: 0;
-                    bottom: 0;
-                }
-    
-                &.p-speeddial-direction-up-right {
-                    left: 0;
-                    bottom: 0;
-                }
-    
-                &.p-speeddial-direction-down-left {
-                    right: 0;
-                    top: 0;
-                }
-    
-                &.p-speeddial-direction-down-right {
-                    left: 0;
-                    top: 0;
-                }
-            }
-        }
-    }`
-  ],
+  imports: [TimelineModule, CardModule, ButtonModule, CommonModule],
   templateUrl: './hello.component.html',
-  styleUrl: './hello.component.css',
+  styleUrls: ['./hello.component.css'],
 })
 export class HelloComponent implements OnInit {
-  items: MenuItem[] = [
-    {
-      icon: 'pi pi-pencil',
-      command: () => {
-        this.messageService.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
-      }
-    },
-    {
-      icon: 'pi pi-refresh',
-      command: () => {
-        this.messageService.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
-      }
-    },
-    {
-      icon: 'pi pi-trash',
-      command: () => {
-        this.messageService.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
-      }
-    },
-    {
-      icon: 'pi pi-upload',
-      routerLink: ['/fileupload']
-    },
-    {
-      icon: 'pi pi-external-link',
-      target: '_blank',
-      url: 'http://angular.io'
-    }
-  ];
+  events: EventItem[];
 
-  constructor(private messageService: MessageService) { }
+  constructor() {
+    this.events = [
+      { status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0', image: 'game-controller.jpg' },
+      { status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7' },
+      { status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800' },
+      { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
+    ];
+  }
+
   ngOnInit() { }
 }
