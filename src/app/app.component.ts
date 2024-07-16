@@ -151,7 +151,7 @@ export class AppComponent implements OnInit {
 
   value8: number = 20;
 
-  percentValue: number = 75;
+  percentValue: number = 55;
 
   ratingValue!: number;
 
