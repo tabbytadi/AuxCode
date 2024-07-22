@@ -29,6 +29,8 @@ import { AvatarModule } from 'primeng/avatar';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { TabViewModule } from 'primeng/tabview';
 import { ToolbarModule } from 'primeng/toolbar';
+import { DataDisplayComponent } from './data-display/data-display.component';
+
 
 interface City {
   name: string;
@@ -43,7 +45,7 @@ interface Column {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ButtonModule, MenubarModule, ReactiveFormsModule, DropdownModule, FormsModule, CheckboxModule, InputNumberModule, KnobModule, RatingModule, SliderModule, InputTextModule, ToggleButtonModule, CommonModule, ToastModule, SpeedDialModule, OrganizationChartModule, TreeTableModule, AccordionModule, CardModule, DividerModule, AvatarModule, FieldsetModule, ScrollPanelModule, TabViewModule, ToolbarModule],
+  imports: [DataDisplayComponent, RouterOutlet, ButtonModule, MenubarModule, ReactiveFormsModule, DropdownModule, FormsModule, CheckboxModule, InputNumberModule, KnobModule, RatingModule, SliderModule, InputTextModule, ToggleButtonModule, CommonModule, ToastModule, SpeedDialModule, OrganizationChartModule, TreeTableModule, AccordionModule, CardModule, DividerModule, AvatarModule, FieldsetModule, ScrollPanelModule, TabViewModule, ToolbarModule],
   providers: [MessageService, NodeService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
